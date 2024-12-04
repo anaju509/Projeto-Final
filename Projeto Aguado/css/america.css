@@ -1,0 +1,145 @@
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 20px;
+    text-align: center;
+    background-color: rgb(166, 201, 231);
+    
+}
+
+.titulo{
+    grid-column: 1/9;
+    background-color: rgb(9, 12, 124);
+    padding:20px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    border: 3px solid black;
+    
+}
+
+.opcao {
+    padding: 180px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    grid-column: 2/8;
+    background-color: burlywood;;
+    border-radius: 20px;
+    font-size: 20px;
+
+}
+
+.lima{
+    background-image: url(../img/lima.png);
+    color: rgb(0, 0, 0);
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top;
+    
+
+
+}
+
+.santiago{
+    background-image: url(../img/santiago.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    padding-top: 10px;
+    
+}
+
+.buenos{
+    background-image: url(../img/buenos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.assuncao{
+    background-image: url(../img/assuncao.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.miami{
+    background-image: url(../img/miami.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.toronto{
+    background-image: url(../img/toronto.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center ;
+    padding-top: 10px;
+}
+.voltar{
+    grid-column: 1/2;
+    background-color: rgb(87, 90, 173);
+    border-radius: 20px;
+    border: 3px solid black;
+    padding:10px;
+}
+
+a{
+    color: rgb(255, 255, 255);
+}
+
+
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: repeat(4,1fr);
+    }
+    .opcao {
+        padding: 90px;
+        grid-column: 2/4;
+    }
+    .titulo {
+        font-size: 16px;
+    }
+    .voltar {
+        padding: 6px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .opcao {
+        padding: 60px;
+    }
+    .titulo {
+        font-size: 14px;
+    }
+    .voltar {
+        padding: 4px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .opcao {
+        padding: 40px;
+    }
+    .titulo {
+        font-size: 12px;
+    }
+    .voltar {
+        padding: 2px;
+    }
+}

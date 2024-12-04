@@ -1,0 +1,139 @@
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 20px;
+    text-align: center;
+    background-color: rgb(166, 201, 231);
+    
+}
+
+.titulo {
+    grid-column: 1/9;
+    background-color: rgb(7, 7, 129);
+    padding:20px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    border: 3px solid black;
+    text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+}
+.opcao {
+    padding: 180px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    grid-column: 2/8;
+    background-color: burlywood;;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 10px 10px 5px rgb(153, 152, 155);
+    
+
+}
+
+.singapura{
+    background-image: url(../img/singa.png);
+    color: rgb(0, 0, 0);
+    padding-top: 10px;
+
+}
+
+.toquio{
+    background-image: url(../img/toquio.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    padding-top: 10px;
+    
+}
+
+.pequim{
+    background-image: url(../img/pequim.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.dubai{
+    background-image: url(../img/dubai.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.maldivas{
+    background-image: url(../img/maldivas.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    padding-top: 10px;
+}
+
+.bali{
+    background-image: url(../img/bali.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center ;
+    padding-top: 10px;
+}
+.voltar{
+    grid-column: 1/2;
+    background-color: rgb(87, 90, 173);
+    border-radius: 20px;
+    border: 3px solid black;
+    padding:10px;
+}
+
+a{
+    color: rgb(255, 255, 255);
+}
+
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: repeat(4,1fr);
+    }
+    .opcao {
+        padding: 90px;
+    }
+    .titulo {
+        font-size: 16px;
+    }
+    .voltar {
+        padding: 6px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .opcao {
+        padding: 60px;
+    }
+    .titulo {
+        font-size: 14px;
+    }
+    .voltar {
+        padding: 4px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .opcao {
+        padding: 40px;
+    }
+    .titulo {
+        font-size: 12px;
+    }
+    .voltar {
+        padding: 2px;
+    }
+}

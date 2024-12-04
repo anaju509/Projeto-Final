@@ -1,0 +1,104 @@
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 20px;
+    margin: 40px auto;
+    text-align: center;
+    background-image: url(../img/tituloviag.png);
+    
+}
+
+.titulo{
+    grid-column: 1/9;
+    background-color: burlywood;
+    padding:20px;
+    font-size: 20px;
+    color: black;
+    border: 3px solid black;
+    
+    
+}
+
+.opcao {
+    padding: 50px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    grid-column: 2/8;
+    background-color: burlywood;;
+    border-radius: 20px;
+
+}
+
+.voltar{
+    grid-column: 1/2;
+    background-color: burlywood;;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding:10px;
+}
+
+a{
+    color: black;
+}
+
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    .titulo {
+        font-size: 16px;
+    }
+    .opcao {
+        grid-column: 2/4;
+        padding: 30px;
+    }
+    .voltar {
+        padding: 8px;
+        width: 20%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .titulo {
+        font-size: 14px;
+    }
+    .opcao {
+       grid-column: 1/3;
+        padding: 20px;
+    }
+    .voltar {
+        padding: 4px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2px;
+    }
+    .titulo {
+        font-size: 12px;
+    }
+    .opcao {
+        padding: 15px;
+    }
+    .voltar {
+        padding: 2px;
+    }
+}
+    
+
+
+
+
+

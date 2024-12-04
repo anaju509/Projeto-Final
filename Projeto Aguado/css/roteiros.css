@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #2d749b;
+    color: white;
+    text-align: center;
+    padding: 3%;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    
+}
+
+button{
+    border-radius:300px;
+    background-color: aliceblue;
+    margin-right: 1%;
+    padding:1%;
+}
+
+
+
+.br,.inter {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.subtitulo {
+    font-size: 25px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.roteiro {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.roteiro img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.descricao {
+    padding: 20px;
+}
+
+.descricao h2 {
+    margin-top: 0;
+    color: #0288d1;
+    font-size: 35px;
+}
+
+.descricao li {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.voltar{
+    background-color: #2d749b;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding:10px;
+    width: 5%;
+    text-align: center;
+}
+
+.voltar a{
+    color: black;
+    
+}
+
+@media only screen and (max-width: 480px) {
+    .br, .inter {
+        max-width: 90%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    .roteiro img {
+        height: 200px;
+    }
+    .descricao h2 {
+        font-size: 25px;
+    }
+    .descricao li {
+        font-size: 14px;
+    }
+    .voltar {
+        width: 10%;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .br, .inter {
+        max-width: 80%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+    .roteiro img {
+        height: 250px;
+    }
+    .descricao h2 {
+        font-size: 30px;
+    }
+    .descricao li {
+        font-size: 16px;
+    }
+    .voltar {
+        width: 10%;
+    }
+}

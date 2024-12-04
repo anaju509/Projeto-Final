@@ -1,0 +1,152 @@
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 20px;
+    text-align: center;
+    background-color: rgb(166, 201, 231);
+    color:black;
+    
+}
+
+.titulo{
+    grid-column: 1/9;
+    background-color: rgb(8, 13, 141);
+    padding:20px;
+    font-size: 20px;
+    border: 3px solid black;
+    
+    
+    
+}
+
+.opcao {
+    padding: 180px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    grid-column: 2/8;
+    background-color: burlywood;;
+    border-radius: 20px;
+    font-size: 20px;
+    
+
+}
+
+.cabo{
+    background-image: url(../img/cabo.png);
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    
+
+
+}
+
+.namibia{
+    background-image: url(../img/namibia.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    padding-top: 10px;
+    
+    
+}
+
+.madagascar{
+    background-image: url(../img/madagascar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+    
+    
+}
+
+.zez{
+    background-image: url(../img/vic.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.cairo{
+    background-image: url(../img/cairo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    padding-top: 10px;
+}
+
+.casab{
+    background-image: url(../img/casablanca.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top ;
+    padding-top: 10px;
+}
+.voltar{
+    grid-column: 1/2;
+    background-color: rgb(87, 90, 173);
+    border-radius: 20px;
+    border: 3px solid black;
+    padding:10px;
+}
+
+a{
+    color: white;
+}
+
+
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: repeat(4,1fr);
+    }
+    .opcao {
+        padding: 90px;
+        grid-column: 1/5;
+    }
+    .titulo {
+        font-size: 16px;
+    }
+    .voltar {
+        padding: 6px;
+        width: 20%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .opcao {
+        padding: 60px;
+    }
+    .titulo {
+        font-size: 14px;
+    }
+    .voltar {
+        padding: 4px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .opcao {
+        padding: 40px;
+        
+    }
+    .titulo {
+        font-size: 12px;
+    }
+    .voltar {
+        padding: 2px;
+    }
+}

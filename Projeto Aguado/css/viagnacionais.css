@@ -1,0 +1,181 @@
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 20px;
+    text-align: center;
+    background-color: rgb(166, 201, 231);
+    color:white;
+    
+}
+
+.titulo{
+    grid-column: 1/9;
+    background-color: rgb(13, 17, 134);
+    padding:20px;
+    font-size: 20px;
+    border: 3px solid black;
+    
+    
+    
+}
+
+.opcao {
+    padding: 180px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    grid-column: 2/8;
+    background-color: burlywood;;
+    border-radius: 20px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+
+}
+
+.maranhao{
+    background-image: url(../img/lençol.png);
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top;
+    
+
+
+}
+
+.tocantins{
+    background-image: url(../img/jalapao.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top;
+    padding-top: 10px;
+    
+    
+}
+
+.tiradentes{
+    background-image: url(../img/tiradentes.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    padding-top: 10px;
+    
+}
+
+.sp{
+    background-image: url(../img/maresias.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.bahia{
+    background-image: url(../img/portoseguro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    padding-top: 10px;
+}
+
+.rgds{
+    background-image: url(../img/bento.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top ;
+    padding-top: 10px;
+}
+.rdj{
+    background-image: url(../img/buzios.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top ;
+    padding-top: 10px;
+}
+
+.montev{
+    background-image: url(../img/monteverde.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center ;
+    padding-top: 10px;
+}
+.paraiba{
+    background-image: url(../img/jp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top ;
+    padding-top: 10px;
+}
+
+.santac{
+    background-image: url(../img/balneario.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:top ;
+    padding-top: 10px;
+}
+.voltar{
+    grid-column: 1/2;
+    background-color: rgb(87, 90, 173);
+    border-radius: 20px;
+    border: 3px solid black;
+    padding:10px;
+}
+
+a{
+    color: white;
+}
+
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    .titulo {
+        font-size: 16px;
+    }
+    .opcao {
+        padding: 90px;
+        grid-column: 1/5;
+    }
+    .voltar {
+        padding: 6px;
+        width: 20%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .titulo {
+        font-size: 14px;
+    }
+    .opcao {
+        padding: 60px;
+    }
+    .voltar {
+        padding: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2px;
+    }
+    .titulo {
+        font-size: 12px;
+    }
+    .opcao {
+        padding: 40px;
+    }
+    .voltar {
+        padding: 2px;
+    }
+}

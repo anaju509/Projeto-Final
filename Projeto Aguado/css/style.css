@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Unlock&display=swap');
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap:30px;
+    grid-auto-rows: minmax(100px,auto);
+    background-color:#a6f3f0;
+}
+
+
+.titulo{
+ 
+        background-image: url(../img/mapa.png);
+        grid-column: 1/8;
+        font-size: 30px;
+        color: black;
+        padding:60px; 
+        border: 3px solid black;
+        display: flex;
+}
+
+.frase {
+    font-family: "Unlock", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.pesquisa{
+    align-items: end;
+    gap:5px;
+    width: 30%;
+    height: 30%;
+    overflow: hidden;
+    margin-left: 20%;
+    margin-top: 2%;
+
+}
+
+.search.active input{
+    border-radius: 5px 5px 0 0;
+}
+
+.serach.active.list{
+    opacity: 1;
+    padding:10px 8px;
+    pointer-events: auto;
+}
+nav{
+    grid-column: 1/8;
+    font-size: 25px;
+    text-align: center;
+    padding:10px;
+}
+
+a{
+    margin-right:30px;
+    color:black;
+    
+}
+
+.paginas{
+    grid-column: 1/8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    background-color:#a6f3f0;
+   
+}
+
+.detalhes{
+    text-align: center;
+    background-color: #27a39f;
+    border-radius: 20%;
+    border: 3px solid black;
+    height: 90%;
+    width: 20%;
+   
+    
+}
+
+#aviao,#br,#papel,#htl{
+    width: 60%;
+    height:60%;
+}
+
+button {
+    background-color: #27a39f;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2b4497;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+    .titulo {
+        font-size: 20px;
+        padding: 30px;
+    }
+    #pesquisa {
+        width: 50%;
+        height: 50%;
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+    nav {
+        font-size: 20px;
+        padding: 5px;
+    }
+    a {
+        margin-right: 10px;
+    }
+    .paginas {
+        gap: 50px;
+    }
+    .detalhes {
+        width: 30%;
+        height: 80%;
+    }
+    #aviao,#br,#papel,#htl {
+        width: 40%;
+        height: 40%;
+    }
+    button {
+        padding: 5px 10px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+    }
+    .titulo {
+        font-size: 25px;
+        padding: 40px;
+    }
+    #pesquisa {
+        width: 60%;
+        height: 10%;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+    nav {
+        font-size: 22px;
+        padding: 8px;
+    }
+    a {
+        margin-right: 20px;
+    }
+    .paginas {
+        gap: 70px;
+    }
+    .detalhes {
+        width: 35%;
+        height: 85%;
+    }
+    #aviao,#br,#papel,#htl {
+        width: 50%;
+        height: 50%;
+    }
+    button {
+        padding: 8px 15px;
+    }
+}
