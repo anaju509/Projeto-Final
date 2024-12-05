@@ -26,26 +26,7 @@
     font-style: normal;
   }
 
-.pesquisa{
-    align-items: end;
-    gap:5px;
-    width: 30%;
-    height: 30%;
-    overflow: hidden;
-    margin-left: 20%;
-    margin-top: 2%;
 
-}
-
-.search.active input{
-    border-radius: 5px 5px 0 0;
-}
-
-.serach.active.list{
-    opacity: 1;
-    padding:10px 8px;
-    pointer-events: auto;
-}
 nav{
     grid-column: 1/8;
     font-size: 25px;
@@ -98,6 +79,7 @@ button {
     background-color: #2b4497;
   }
 
+  
   @media only screen and (max-width: 480px) {
     .container {
         grid-template-columns: repeat(2,1fr);

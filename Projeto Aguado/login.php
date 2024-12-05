@@ -1,33 +1,54 @@
 <?php
-require 'conexao.php'; // Inclui o arquivo de conexão com o banco de dados
+session_start(); 
+require_once 'db_conn.php'; 
+
+// Se o usuário já está logado, redireciona para a página principal
+
+$erro = ""; // Inicializa a variável de erro
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = $_POST['email']; 
+    $senha = $_POST['senha'];  
 
-    // Preparar a consulta para buscar o usuário pelo email
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
-
-    // Recupera o usuário do banco de dados
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Verifica se o usuário existe e se a senha está correta
-    if ($user && password_verify($senha, $user['senha'])) {
-        // Inicia a sessão
-        session_start();
-        $_SESSION['email'] = $user['email'];  // Armazena o email na sessão
-        $_SESSION['user_id'] = $user['id'];   // Armazena o ID do usuário na sessão (opcional)
-
-        // Redireciona para uma página restrita ou área inicial
-        header("Location: index.php");  // Redireciona para a página restrita ou área inicial
-        exit(); // Encerra o script para garantir que o redirecionamento ocorra imediatamente
-    } else {
-        // Se o usuário ou senha estiverem incorretos
-        echo "Usuário ou senha incorretos.";
+    // Prepara a consulta SQL
+    $sql = "SELECT email, senha FROM usuario WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt === false) {
+        die('Erro ao preparar a consulta: ' . $conn->error);
     }
+
+    $stmt->bind_param("s", $email); 
+    
+    // Executa a consulta
+    if (!$stmt->execute()) {
+        die('Erro ao executar a consulta: ' . $stmt->error);
+    }
+
+    // Obtém o resultado
+    $result = $stmt->get_result();
+
+    // Verifica se encontrou o usuário
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+
+        // Verifica se a senha está correta (com password_verify)
+        if (password_verify($senha, $email['senha'])) {
+            // Se a senha estiver correta, cria a sessão
+            $_SESSION['usuario_email'] = $usuario['email'];
+            header("Location: index.html"); // Redireciona para a página principal
+            exit();
+        } else {
+            $erro = "Senha incorreta!";
+        }
+    } else {
+        $erro = "Email não encontrado!";
+    }
+
+    // Fecha a consulta e a conexão
+    $stmt->close();
+    $conn->close();
 }
 ?>
 
@@ -40,15 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-    <div class="conta-container">
+    <div class="login-container">
         <div class="logo">
-          <img src="img/logo.png" alt="Logo">
+            <img src="img/logo.png" alt="Logo">
         </div>
-        <h1>Login</h1>
+        <h1>LOGIN</h1>
 
-        <!-- Formulário de login -->
+        <!-- Exibe o erro se houver -->
+        <?php if ($erro): ?>
+            <div class="error"><?php echo $erro; ?></div>
+        <?php endif; ?>
+
         <form action="" method="POST">
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="senha" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
