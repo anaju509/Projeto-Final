@@ -1,3 +1,4 @@
+
 <?php
 session_start(); // Inicia a sessão
 require_once 'db_conn.php'; // Inclui a conexão com o banco

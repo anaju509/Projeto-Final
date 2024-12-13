@@ -2,54 +2,41 @@
 session_start(); 
 require_once 'db_conn.php'; 
 
-// Se o usuário já está logado, redireciona para a página principal
+if ($conn->connect_error) {
+    die("Falha de conexão: " . $conn->connect_error);
+}
 
-$erro = ""; // Inicializa a variável de erro
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-// Verifica se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email']; 
-    $senha = $_POST['senha'];  
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
 
-    // Prepara a consulta SQL
-    $sql = "SELECT email, senha FROM usuario WHERE email = ?";
-    $stmt = $conn->prepare($sql);
     
-    if ($stmt === false) {
-        die('Erro ao preparar a consulta: ' . $conn->error);
-    }
+    if (empty($email) || empty($senha)) {
+        echo "<script>alert('Por favor, preencha todos os campos!');</script>";
+    } else {
+        
+        $stmt = $conn->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?");
+        $stmt->bind_param("ss", $email, $senha);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    $stmt->bind_param("s", $email); 
-    
-    // Executa a consulta
-    if (!$stmt->execute()) {
-        die('Erro ao executar a consulta: ' . $stmt->error);
-    }
-
-    // Obtém o resultado
-    $result = $stmt->get_result();
-
-    // Verifica se encontrou o usuário
-    if ($result->num_rows > 0) {
-        $usuario = $result->fetch_assoc();
-
-        // Verifica se a senha está correta (com password_verify)
-        if (password_verify($senha, $email['senha'])) {
-            // Se a senha estiver correta, cria a sessão
-            $_SESSION['usuario_email'] = $usuario['email'];
-            header("Location: index.html"); // Redireciona para a página principal
+        if ($result->num_rows > 0) {
+            
+            $_SESSION['email'] = $email;
+            header('Location: index.html');
             exit();
         } else {
-            $erro = "Senha incorreta!";
+        
+            unset($_SESSION['email']);
+            echo "<script>alert('Email ou senha incorretos!');</script>";
         }
-    } else {
-        $erro = "Email não encontrado!";
-    }
 
-    // Fecha a consulta e a conexão
-    $stmt->close();
-    $conn->close();
+        $stmt->close();
+    }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -66,11 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <img src="img/logo.png" alt="Logo">
         </div>
         <h1>LOGIN</h1>
-
-        <!-- Exibe o erro se houver -->
-        <?php if ($erro): ?>
-            <div class="error"><?php echo $erro; ?></div>
-        <?php endif; ?>
 
         <form action="" method="POST">
             <input type="text" name="email" placeholder="Email" required>
